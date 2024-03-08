@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Кто хочет стать миллионером?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .answers {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .answer {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #000;
+            min-width: 100px;
+            cursor: pointer;
+            background-color: white; /* Установка фона кнопок в белый */
+            transition: background-color 0.3s, color 0.3s; /* Плавное изменение цвета при наведении */
+        }
+        .answer:hover {
+            background-color: #a89c9c; /* Цвет фона кнопок при наведении */
+            color: #333; /* Цвет текста кнопок при наведении */
+        }
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="question" th:text="${question}">Ваш вопрос здесь?</div>
+<div class="answers">
+    <div class="answer" th:style="'background-color:' + ${colorA}" th:text="'A: ' + ${answerA}">Ответ A</div>
+    <div class="answer" th:style="'background-color:' + ${colorB}" th:text="'B: ' + ${answerB}">Ответ B</div>
+    <div class="answer" th:style="'background-color:' + ${colorC}" th:text="'C: ' + ${answerC}">Ответ C</div>
+    <div class="answer" th:style="'background-color:' + ${colorD}" th:text="'D: ' + ${answerD}">Ответ D</div>
+</div>
+<div class="question" th:text="${prize}">Приз</div>
+<form th:action="@{/kviz/next}" method="post">
+    <button class="answer" type="submit">Следующий вопрос</button>
+</form>
+
+</body>
+</html>

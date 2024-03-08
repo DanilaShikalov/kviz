@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поздравление!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            background: #23d5ab;
+        }
+        .congratulations {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .message {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: #000;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-block; /* Добавлено для поддержки отображения в виде кнопки */
+        }
+        .button:hover {
+            background-color: #23a6d5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="congratulations">Поздравляем!</div>
+<div class="message">Вы успешно ответили на все вопросы.</div>
+<div class="message">Вы получили <span th:text="${userScore}">0</span> баллов из <span th:text="${totalScore}">0</span></div>
+<p><a href="/kviz/start" class="button">Вернуться на главную страницу</a></p>
+
+</body>
+</html>

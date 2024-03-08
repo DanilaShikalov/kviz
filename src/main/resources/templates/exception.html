@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Ошибка</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+            text-align: center;
+        }
+        .error-container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d9534f;
+        }
+        p {
+            margin: 20px 0;
+        }
+        a {
+            color: #428bca;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="error-container">
+    <h1>Неизвестная ошибка</h1>
+    <p>Произошла неизвестная ошибка. Пожалуйста, попробуйте еще раз позже.</p>
+    <p><a th:href="@{/kviz/start}">Вернуться на главную страницу</a></p>
+</div>
+
+</body>
+</html>

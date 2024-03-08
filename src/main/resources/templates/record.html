@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Таблица игроков</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ffffff;
+            padding: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для ячеек */
+        }
+
+        th {
+            font-size: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Более темный фон для заголовков */
+        }
+
+        td {
+            font-size: 18px;
+        }
+
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .form-container {
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin: auto;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #23a6d5;
+            border: none;
+            border-radius: 3px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h1>Таблица игроков и их баллы</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Имя игрока</th>
+            <th>Баллы</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="player : ${players}">
+            <td th:text="${player.name}">Имя игрока</td>
+            <td th:text="${player.score}">Баллы</td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="button" onclick="location.href='/kviz/start'">Главная страница</button>
+</div>
+
+</body>
+</html>
