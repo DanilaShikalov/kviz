@@ -10,3 +10,15 @@ services:
       POSTGRES_PASSWORD: root
     ports:
       - "5433:5432"
+
+  kviz:
+    image: kviz:1.0
+    container_name: kviz
+    environment:
+      POSTGRES_URL: jdbc:postgresql://postgres:5432/kviz
+      POSTGRES_USERNAME: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
