@@ -32,7 +32,7 @@
             border: 1px solid #000;
             min-width: 100px;
             cursor: pointer;
-            background-color: white; /* Установка фона кнопок в белый */
+            background-color: #ffffff; /* Установка фона кнопок в белый */
             transition: background-color 0.3s, color 0.3s; /* Плавное изменение цвета при наведении */
         }
         .answer:hover {
@@ -63,7 +63,7 @@
 </div>
 <div class="question" th:text="${prize}">Приз</div>
 <form th:action="@{/kviz/next}" method="post">
-    <button class="answer" type="submit">Следующий вопрос</button>
+    <button class="answer" th:text="${nameButton}" type="submit">Следующий вопрос</button>
 </form>
 
 </body>

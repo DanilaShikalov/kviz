@@ -83,11 +83,12 @@ public class PagesController {
         Integer num = (Integer) session.getAttribute("num");
         if (questionEntity.getCurrentAnswer().equals(answer)) {
             user.setScore(user.getScore() + questionEntity.getPrice());
-            model.addAttribute("colorA", questionEntity.getAnswerA().equals(answer) ? "#36ff00" : "#f2f2f2");
-            model.addAttribute("colorB", questionEntity.getAnswerB().equals(answer) ? "#36ff00" : "#f2f2f2");
-            model.addAttribute("colorC", questionEntity.getAnswerC().equals(answer) ? "#36ff00" : "#f2f2f2");
-            model.addAttribute("colorD", questionEntity.getAnswerD().equals(answer) ? "#36ff00" : "#f2f2f2");
+            model.addAttribute("colorA", questionEntity.getAnswerA().equals(answer) ? "#36ff00" : "#ffffff");
+            model.addAttribute("colorB", questionEntity.getAnswerB().equals(answer) ? "#36ff00" : "#ffffff");
+            model.addAttribute("colorC", questionEntity.getAnswerC().equals(answer) ? "#36ff00" : "#ffffff");
+            model.addAttribute("colorD", questionEntity.getAnswerD().equals(answer) ? "#36ff00" : "#ffffff");
             model.addAttribute("prize", questionEntity.getPrize());
+            model.addAttribute("nameButton", "Следующий вопрос");
             session.setAttribute("num", ++num);
         } else {
             model.addAttribute("colorA", questionEntity.getAnswerA().equals(answer) ? "#ff0000" : questionEntity.getAnswerA().equals(questionEntity.getCurrentAnswer()) ? "#36ff00" : "#f2f2f2");
@@ -95,6 +96,7 @@ public class PagesController {
             model.addAttribute("colorC", questionEntity.getAnswerC().equals(answer) ? "#ff0000" : questionEntity.getAnswerC().equals(questionEntity.getCurrentAnswer()) ? "#36ff00" : "#f2f2f2");
             model.addAttribute("colorD", questionEntity.getAnswerD().equals(answer) ? "#ff0000" : questionEntity.getAnswerD().equals(questionEntity.getCurrentAnswer()) ? "#36ff00" : "#f2f2f2");
             model.addAttribute("prize", "");
+            model.addAttribute("nameButton", "Ответить еще раз");
         }
         userRepository.save(user);
         return "check";
