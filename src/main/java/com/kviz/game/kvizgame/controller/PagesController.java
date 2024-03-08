@@ -56,7 +56,7 @@ public class PagesController {
         if (list.isEmpty()) {
             return "exception";
         }
-        Question question = list.getFirst();
+        Question question = list.stream().findFirst().get();
         model.addAttribute("question", question.getQuestion());
         model.addAttribute("answerA", question.getAnswerA());
         model.addAttribute("answerB", question.getAnswerB());
