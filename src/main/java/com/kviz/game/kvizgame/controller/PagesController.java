@@ -91,10 +91,10 @@ public class PagesController {
             model.addAttribute("nameButton", "Следующий вопрос");
             session.setAttribute("num", ++num);
         } else {
-            model.addAttribute("colorA", questionEntity.getAnswerA().equals(answer) ? "#ff0000" : questionEntity.getAnswerA().equals(questionEntity.getCurrentAnswer()) ? "#36ff00" : "#f2f2f2");
-            model.addAttribute("colorB", questionEntity.getAnswerB().equals(answer) ? "#ff0000" : questionEntity.getAnswerB().equals(questionEntity.getCurrentAnswer()) ? "#36ff00" : "#f2f2f2");
-            model.addAttribute("colorC", questionEntity.getAnswerC().equals(answer) ? "#ff0000" : questionEntity.getAnswerC().equals(questionEntity.getCurrentAnswer()) ? "#36ff00" : "#f2f2f2");
-            model.addAttribute("colorD", questionEntity.getAnswerD().equals(answer) ? "#ff0000" : questionEntity.getAnswerD().equals(questionEntity.getCurrentAnswer()) ? "#36ff00" : "#f2f2f2");
+            model.addAttribute("colorA", questionEntity.getAnswerA().equals(answer) ? "#ff0000" : questionEntity.getAnswerA().equals(questionEntity.getCurrentAnswer()) ? "#ffffff" : "#f2f2f2");
+            model.addAttribute("colorB", questionEntity.getAnswerB().equals(answer) ? "#ff0000" : questionEntity.getAnswerB().equals(questionEntity.getCurrentAnswer()) ? "#ffffff" : "#f2f2f2");
+            model.addAttribute("colorC", questionEntity.getAnswerC().equals(answer) ? "#ff0000" : questionEntity.getAnswerC().equals(questionEntity.getCurrentAnswer()) ? "#ffffff" : "#f2f2f2");
+            model.addAttribute("colorD", questionEntity.getAnswerD().equals(answer) ? "#ff0000" : questionEntity.getAnswerD().equals(questionEntity.getCurrentAnswer()) ? "#ffffff" : "#f2f2f2");
             model.addAttribute("prize", "");
             model.addAttribute("nameButton", "Ответить еще раз");
         }
