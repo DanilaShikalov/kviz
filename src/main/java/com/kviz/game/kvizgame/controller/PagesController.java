@@ -7,6 +7,7 @@ import com.kviz.game.kvizgame.repository.UserRepository;
 import com.kviz.game.kvizgame.service.QuestionService;
 import jakarta.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.ui.Model;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
@@ -52,7 +55,7 @@ public class PagesController {
             session.setAttribute("num", 0);
             userRepository.save(user);
         }
-        List<Question> list = questionRepository.findAll();
+        List<Question> list = questionRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
         if (list.isEmpty()) {
             return "exception";
         }
